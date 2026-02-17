@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rayane-editor.com/sitemap.xml
