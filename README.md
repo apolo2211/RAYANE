@@ -73,7 +73,7 @@
 
 ```bash
 # Clonez le dépôt
-git clone https://github.com/ouaredseraidi/rayane-editor.git
+git clone (https://apolo2211.github.io/RAYANE)
 
 # Allez dans le dossier
 cd rayane-editor

@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RAYANE - Éditeur HTML/CSS innovant créé par Ouared Seraidi de Ksar El Boukhari, Algérie">
+    <meta name="author" content="Ouared Seraidi - Ksar El Boukhari">
+    <meta name="keywords" content="RAYANE, HTML, CSS, éditeur, Ouared Seraidi, Ksar El Boukhari, Algérie">
+    
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="RAYANE - Éditeur HTML/CSS">
+    <meta property="og:description" content="Créé par Ouared Seraidi à Ksar El Boukhari">
+    <meta property="og:phone_number" content="+213675137284">
+    
     <title>RAYANE - Éditeur HTML/CSS par Ouared Seraidi</title>
     <style>
         * {
@@ -25,6 +34,7 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .rayane-header {
@@ -34,6 +44,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
         }
 
         .logo-rayane {
@@ -46,9 +62,20 @@
         .logo-rayane span {
             animation: bounce 2s infinite;
             background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
             -webkit-background-clip: text;
+            color: transparent;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
+
+        .logo-rayane span:nth-child(1) { animation-delay: 0s; }
+        .logo-rayane span:nth-child(2) { animation-delay: 0.2s; }
+        .logo-rayane span:nth-child(3) { animation-delay: 0.4s; }
+        .logo-rayane span:nth-child(4) { animation-delay: 0.6s; }
+        .logo-rayane span:nth-child(5) { animation-delay: 0.8s; }
+        .logo-rayane span:nth-child(6) { animation-delay: 1s; }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
@@ -56,17 +83,41 @@
         }
 
         .creator-info {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #ccc;
             margin-top: 5px;
+        }
+
+        .creator-info .name {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .creator-info .location {
+            color: #764ba2;
+            font-weight: 500;
         }
 
         .whatsapp-btn {
             background: #25D366;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            background: #128C7E;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            border-color: white;
         }
 
         .rayane-main {
@@ -83,27 +134,101 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #333;
         }
 
         .editor-header {
             background: #2d2d2d;
-            padding: 15px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             color: white;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .editor-header h2 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .editor-header h2 span {
+            font-size: 1.4rem;
+        }
+
+        .editor-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .editor-actions button {
+            background: #3d3d3d;
+            border: none;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .editor-actions button:hover {
+            background: #667eea;
+            transform: scale(1.1);
         }
 
         .code-editor {
             flex: 1;
             width: 100%;
-            padding: 15px;
-            font-family: 'Courier New', monospace;
+            padding: 20px;
+            font-family: 'Courier New', monospace, 'Fira Code';
             font-size: 14px;
+            line-height: 1.6;
             background: #1e1e1e;
             color: #d4d4d4;
             border: none;
             resize: none;
             min-height: 300px;
+            outline: none;
+        }
+
+        .html-editor {
+            background: #1e1e1e;
+        }
+
+        .css-editor {
+            background: #252526;
+        }
+
+        .editor-footer {
+            background: #2d2d2d;
+            padding: 8px 15px;
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: 0.85rem;
+            border-top: 1px solid #3d3d3d;
+        }
+
+        .language-badge {
+            background: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .chars-count {
+            color: #888;
         }
 
         .preview-section {
@@ -112,80 +237,287 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .preview-header {
             background: linear-gradient(90deg, #667eea, #764ba2);
-            padding: 15px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             color: white;
+        }
+
+        .preview-header h2 {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .preview-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .preview-controls button {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 34px;
+            height: 34px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-controls button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
         }
 
         .preview-container {
             flex: 1;
-            padding: 20px;
+            padding: 25px;
             overflow: auto;
             min-height: 400px;
+            background: white;
+            font-family: 'Arial', sans-serif;
         }
 
         .preview-footer {
             background: #f5f5f5;
             padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+
+        .device-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .update-status {
+            color: #667eea;
+            font-weight: 600;
         }
 
         .examples-section {
-            padding: 20px;
-            background: #f8f9fa;
+            padding: 25px 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-top: 2px solid #667eea;
+        }
+
+        .examples-section h3 {
+            margin-bottom: 20px;
+            color: #1a1a2e;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .examples-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 15px;
-            margin-top: 15px;
         }
 
         .example-card {
             background: white;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 18px 15px;
+            border-radius: 12px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-weight: 500;
         }
 
         .example-card:hover {
             transform: translateY(-5px);
             border-color: #667eea;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .example-icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .rayane-footer {
-            background: #1a1a2e;
+            background: linear-gradient(90deg, #1a1a2e, #16213e);
             color: white;
             padding: 20px 30px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-top: 3px solid #667eea;
+            font-size: 0.95rem;
         }
 
+        .footer-info {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-info .separator {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .footer-info .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .footer-whatsapp {
+            color: #25D366;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 211, 102, 0.15);
+            padding: 8px 18px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 600;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+        }
+
+        .footer-whatsapp:hover {
+            background: #25D366;
+            color: white;
+            transform: scale(1.05);
+            border-color: white;
+        }
+
+        /* Responsive Design */
         @media (max-width: 1200px) {
             .rayane-main {
                 grid-template-columns: 1fr;
             }
+            
+            .rayane-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .logo-rayane {
+                justify-content: center;
+            }
+            
+            .footer-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .rayane-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .examples-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .editor-header h2 {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Animations supplémentaires */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .update-status {
+            animation: pulse 2s infinite;
+        }
+
+        /* Style pour les liens */
+        a {
+            text-decoration: none;
+        }
+
+        /* Style pour les boutons */
+        button {
+            cursor: pointer;
+        }
+
+        /* Style pour les scrollbars */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #2d2d2d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
         }
     </style>
 </head>
 <body>
     <div class="rayane-container">
         <header class="rayane-header">
-            <div>
+            <div class="logo-container">
                 <div class="logo-rayane">
-                    <span>R</span><span>A</span><span>Y</span><span>A</span><span>N</span><span>E</span>
+                    <span>R</span>
+                    <span>A</span>
+                    <span>Y</span>
+                    <span>A</span>
+                    <span>N</span>
+                    <span>E</span>
                 </div>
                 <div class="creator-info">
-                    Ouared Seraidi • Ksar El Boukhari
+                    <span class="name">Ouared Seraidi</span> 
+                    <span class="separator">•</span> 
+                    <span class="location">Ksar El Boukhari</span>
                 </div>
             </div>
-            <a href="https://wa.me/213675137284" class="whatsapp-btn" target="_blank">
-                📱 +213 675 13 72 84
+            <a href="https://wa.me/213675137284" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+                <span>📱</span>
+                +213 675 13 72 84
             </a>
         </header>
 
@@ -193,97 +525,683 @@
             <!-- Éditeur HTML -->
             <div class="editor-section">
                 <div class="editor-header">
-                    <span>📝 HTML</span>
-                    <div>
-                        <button onclick="clearEditor('html')">🗑️</button>
-                        <button onclick="copyToClipboard('html')">📋</button>
+                    <h2>
+                        <span>📝</span> 
+                        HTML
+                    </h2>
+                    <div class="editor-actions">
+                        <button onclick="clearEditor('html')" title="Effacer le code HTML">🗑️</button>
+                        <button onclick="copyToClipboard('html')" title="Copier le code HTML">📋</button>
                     </div>
                 </div>
-                <textarea id="html-editor" class="code-editor" placeholder="Votre HTML ici..."></textarea>
+                <textarea id="html-editor" class="code-editor html-editor" placeholder="<!-- Écrivez votre code HTML ici -->
+<!-- Exemple : <h1>Bonjour Ksar El Boukhari</h1> -->"></textarea>
+                <div class="editor-footer">
+                    <span class="language-badge">HTML5</span>
+                    <span class="chars-count" id="html-count">0 caractères</span>
+                </div>
             </div>
 
             <!-- Éditeur CSS -->
             <div class="editor-section">
                 <div class="editor-header">
-                    <span>🎨 CSS</span>
-                    <div>
-                        <button onclick="clearEditor('css')">🗑️</button>
-                        <button onclick="copyToClipboard('css')">📋</button>
+                    <h2>
+                        <span>🎨</span> 
+                        CSS
+                    </h2>
+                    <div class="editor-actions">
+                        <button onclick="clearEditor('css')" title="Effacer le code CSS">🗑️</button>
+                        <button onclick="copyToClipboard('css')" title="Copier le code CSS">📋</button>
                     </div>
                 </div>
-                <textarea id="css-editor" class="code-editor" placeholder="Votre CSS ici..."></textarea>
+                <textarea id="css-editor" class="code-editor css-editor" placeholder="/* Écrivez votre code CSS ici */
+/* Exemple : h1 { color: #667eea; } */"></textarea>
+                <div class="editor-footer">
+                    <span class="language-badge">CSS3</span>
+                    <span class="chars-count" id="css-count">0 caractères</span>
+                </div>
             </div>
 
             <!-- Visualiseur -->
             <div class="preview-section">
                 <div class="preview-header">
-                    <span>👁️ Aperçu en direct</span>
+                    <h2>
+                        <span>👁️</span> 
+                        Aperçu en direct
+                    </h2>
+                    <div class="preview-controls">
+                        <button onclick="updatePreview()" title="Rafraîchir l'aperçu">🔄</button>
+                        <button onclick="exportAsHTML()" title="Exporter en HTML">📥</button>
+                        <button onclick="resetToAlgeria()" title="Exemple Algérie">🇩🇿</button>
+                    </div>
                 </div>
-                <div class="preview-container" id="preview-content"></div>
+                <div class="preview-container" id="preview-content">
+                    <!-- Le contenu prévisualisé apparaîtra ici -->
+                </div>
                 <div class="preview-footer">
-                    <span>💻 Desktop</span>
-                    <span id="update-status">Prêt</span>
+                    <span class="device-indicator">💻 Desktop</span>
+                    <span class="update-status" id="update-status">Prêt</span>
                 </div>
             </div>
         </div>
 
-        <!-- Exemples -->
+        <!-- Exemples créatifs -->
         <div class="examples-section">
-            <h3>✨ Exemples créatifs</h3>
+            <h3>
+                <span>✨</span> 
+                Exemples créatifs du monde entier
+            </h3>
             <div class="examples-grid">
-                <div class="example-card" onclick="loadExample('modern')">🌐 Moderne</div>
-                <div class="example-card" onclick="loadExample('algeria')">🏺 Algérie</div>
-                <div class="example-card" onclick="loadExample('animation')">🎭 Animations</div>
-                <div class="example-card" onclick="loadExample('glass')">🪟 Glass</div>
+                <div class="example-card" onclick="loadExample('modern')">
+                    <span class="example-icon">🌐</span>
+                    <span>Site Moderne</span>
+                </div>
+                <div class="example-card" onclick="loadExample('algeria')">
+                    <span class="example-icon">🏺</span>
+                    <span>Héritage Algérien</span>
+                </div>
+                <div class="example-card" onclick="loadExample('animation')">
+                    <span class="example-icon">🎭</span>
+                    <span>Animations</span>
+                </div>
+                <div class="example-card" onclick="loadExample('glass')">
+                    <span class="example-icon">🪟</span>
+                    <span>Glassmorphisme</span>
+                </div>
+                <div class="example-card" onclick="loadExample('gradient')">
+                    <span class="example-icon">🌈</span>
+                    <span>Gradients</span>
+                </div>
+                <div class="example-card" onclick="loadExample('card')">
+                    <span class="example-icon">🃏</span>
+                    <span>Cartes</span>
+                </div>
             </div>
         </div>
 
+        <!-- Footer avec informations de contact -->
         <footer class="rayane-footer">
-            <span>RAYANE - Éditeur HTML/CSS Innovant</span>
-            <span>Ouared Seraidi - Ksar El Boukhari</span>
+            <div class="footer-info">
+                <span>© 2025 <span class="highlight">RAYANE</span> - Éditeur HTML/CSS Innovant</span>
+                <span class="separator">|</span>
+                <span>Créé par <span class="highlight">Ouared Seraidi</span></span>
+                <span class="separator">|</span>
+                <span>📍 <span class="highlight">Ksar El Boukhari</span>, Médéa, Algérie</span>
+            </div>
+            <a href="https://wa.me/213675137284" class="footer-whatsapp" target="_blank" rel="noopener noreferrer">
+                <span>📱</span>
+                +213 675 13 72 84
+            </a>
         </footer>
     </div>
 
     <script>
+        // Fonction de mise à jour de l'aperçu
         function updatePreview() {
             const html = document.getElementById('html-editor').value;
             const css = document.getElementById('css-editor').value;
             const preview = document.getElementById('preview-content');
             
-            preview.innerHTML = `
-                <style>${css}</style>
-                ${html}
+            // Mettre à jour les compteurs de caractères
+            document.getElementById('html-count').textContent = html.length + ' caractère' + (html.length > 1 ? 's' : '');
+            document.getElementById('css-count').textContent = css.length + ' caractère' + (css.length > 1 ? 's' : '');
+            
+            // Créer le contenu de prévisualisation
+            const previewHTML = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <style>
+                        /* Reset CSS minimal */
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                        }
+                        
+                        body {
+                            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+                            line-height: 1.6;
+                            padding: 20px;
+                        }
+                        
+                        /* CSS de l'utilisateur */
+                        ${css}
+                    </style>
+                </head>
+                <body>
+                    ${html || '<div style="text-align: center; padding: 50px; color: #999;">👈 Écrivez du HTML pour voir l\'aperçu</div>'}
+                </body>
+                </html>
             `;
+            
+            preview.innerHTML = previewHTML;
+            
+            // Mettre à jour le statut
+            const status = document.getElementById('update-status');
+            status.textContent = '✓ Aperçu mis à jour';
+            status.style.color = '#25D366';
+            
+            setTimeout(() => {
+                status.textContent = 'Prêt';
+                status.style.color = '#667eea';
+            }, 2000);
         }
 
+        // Effacer un éditeur
         function clearEditor(type) {
-            document.getElementById(type + '-editor').value = '';
-            updatePreview();
+            if (confirm(`Voulez-vous effacer tout le code ${type.toUpperCase()} ?`)) {
+                document.getElementById(type + '-editor').value = '';
+                updatePreview();
+            }
         }
 
+        // Copier dans le presse-papiers
         function copyToClipboard(type) {
             const editor = document.getElementById(type + '-editor');
             editor.select();
             document.execCommand('copy');
+            
+            const status = document.getElementById('update-status');
+            status.textContent = `✓ Code ${type.toUpperCase()} copié !`;
+            status.style.color = '#25D366';
+            
+            setTimeout(() => {
+                status.textContent = 'Prêt';
+                status.style.color = '#667eea';
+            }, 2000);
         }
 
+        // Exporter en fichier HTML
+        function exportAsHTML() {
+            const html = document.getElementById('html-editor').value;
+            const css = document.getElementById('css-editor').value;
+            
+            const fullHTML = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export RAYANE - Ouared Seraidi</title>
+    <style>
+        /* Styles créés avec RAYANE Editor */
+        /* Par Ouared Seraidi - Ksar El Boukhari, Algérie */
+        /* WhatsApp: +213675137284 */
+        ${css}
+    </style>
+</head>
+<body>
+    ${html}
+    
+    <!-- Créé avec RAYANE Editor -->
+    <!-- Ouared Seraidi - Ksar El Boukhari -->
+    <!-- WhatsApp: +213675137284 -->
+</body>
+</html>`;
+            
+            const blob = new Blob([fullHTML], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'rayane-export-' + new Date().toISOString().slice(0,10) + '.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            const status = document.getElementById('update-status');
+            status.textContent = '✓ Fichier exporté avec succès !';
+            status.style.color = '#25D366';
+            
+            setTimeout(() => {
+                status.textContent = 'Prêt';
+                status.style.color = '#667eea';
+            }, 3000);
+        }
+
+        // Reset à l'exemple Algérie
+        function resetToAlgeria() {
+            loadExample('algeria');
+        }
+
+        // Charger un exemple
         function loadExample(type) {
             const examples = {
                 modern: {
-                    html: '<h1 style="color: #667eea;">Site Moderne</h1><p>Exemple de design contemporain</p>',
-                    css: 'body { text-align: center; padding: 50px; }'
+                    html: `<div class="modern-container">
+    <h1 class="gradient-title">RAYANE Editor</h1>
+    <p class="subtitle">L'éditeur qui révolutionne le web</p>
+    <button class="modern-btn">Commencer</button>
+</div>`,
+                    css: `body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.modern-container {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.gradient-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.modern-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.modern-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(102,126,234,0.4);
+}`
                 },
                 algeria: {
-                    html: '<h1 style="color: #006233;">🇩🇿 Ksar El Boukhari</h1><p>Perle de la Médéa</p>',
-                    css: 'body { background: linear-gradient(white, #006233, #d21034); color: white; }'
+                    html: `<div class="algeria-container">
+    <div class="flag">
+        <div class="green"></div>
+        <div class="white"></div>
+        <div class="red-star">⭐</div>
+    </div>
+    <h1 class="title">Ksar El Boukhari</h1>
+    <p class="description">Perle de la Médéa, là où l'authenticité rencontre la modernité</p>
+    <div class="cultural-elements">
+        <div class="element">🏺 Patrimoine</div>
+        <div class="element">🌿 Nature</div>
+        <div class="element">🍵 Thé</div>
+        <div class="element">🎵 Chaâbi</div>
+    </div>
+</div>`,
+                    css: `body {
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9eef5 100%);
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.algeria-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.flag {
+    display: flex;
+    width: 300px;
+    height: 150px;
+    margin: 0 auto 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.green {
+    flex: 1;
+    background: #006233;
+}
+
+.white {
+    flex: 1;
+    background: white;
+    position: relative;
+}
+
+.red-star {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #d21034;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.title {
+    color: #006233;
+    font-size: 2.5rem;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.description {
+    color: #666;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.cultural-elements {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.element {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.element:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(102,126,234,0.4);
+}
+
+@media (max-width: 768px) {
+    .cultural-elements {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}`
                 },
                 animation: {
-                    html: '<div class="animated">Animation</div>',
-                    css: '.animated { animation: bounce 2s infinite; } @keyframes bounce { 50% { transform: translateY(-20px); } }'
+                    html: `<div class="animation-demo">
+    <div class="floating-circle"></div>
+    <h1 class="slide-title">Bienvenue sur RAYANE</h1>
+    <div class="loader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+</div>`,
+                    css: `body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+.animation-demo {
+    text-align: center;
+    color: white;
+}
+
+.floating-circle {
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+.slide-title {
+    animation: slideIn 1s ease-out;
+    margin-bottom: 30px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+    animation: bounce 1.4s infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}`
                 },
                 glass: {
-                    html: '<div class="glass">Effet Glass</div>',
-                    css: '.glass { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 30px; }'
+                    html: `<div class="glass-card">
+    <h2>Glassmorphisme</h2>
+    <p>Effet de verre moderne avec flou</p>
+    <button class="glass-btn">Découvrir</button>
+</div>`,
+                    css: `body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    max-width: 400px;
+}
+
+.glass-card h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.glass-card p {
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.glass-btn {
+    background: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.glass-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}`
+                },
+                gradient: {
+                    html: `<div class="gradient-demo">
+    <h1 class="gradient-text">Dégradés</h1>
+    <div class="gradient-box"></div>
+    <div class="gradient-box"></div>
+    <div class="gradient-box"></div>
+</div>`,
+                    css: `body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #f3ec78, #af4261);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+.gradient-demo {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.gradient-text {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, gold, orange, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-box {
+    width: 200px;
+    height: 100px;
+    margin: 20px auto;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    transition: transform 0.3s;
+}
+
+.gradient-box:nth-child(3) {
+    background: radial-gradient(circle, #667eea, #764ba2);
+}
+
+.gradient-box:nth-child(4) {
+    background: conic-gradient(from 90deg, #ff6b6b, #4ecdc4, #667eea, #ff6b6b);
+}
+
+.gradient-box:hover {
+    transform: scale(1.1);
+}`
+                },
+                card: {
+                    html: `<div class="cards-container">
+    <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Performance</h3>
+        <p>Rapide et efficace</p>
+    </div>
+    <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Design</h3>
+        <p>Moderne et élégant</p>
+    </div>
+    <div class="card">
+        <div class="card-icon">🌍</div>
+        <h3>Global</h3>
+        <p>De Ksar El Boukhari au monde</p>
+    </div>
+</div>`,
+                    css: `body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}`
                 }
             };
             
@@ -291,15 +1209,55 @@
                 document.getElementById('html-editor').value = examples[type].html;
                 document.getElementById('css-editor').value = examples[type].css;
                 updatePreview();
+                
+                const status = document.getElementById('update-status');
+                status.textContent = `✓ Exemple "${type}" chargé !`;
+                status.style.color = '#25D366';
+                
+                setTimeout(() => {
+                    status.textContent = 'Prêt';
+                    status.style.color = '#667eea';
+                }, 2000);
             }
         }
 
-        // Auto-update
-        document.getElementById('html-editor').addEventListener('input', updatePreview);
-        document.getElementById('css-editor').addEventListener('input', updatePreview);
-        
-        // Load default example
-        window.onload = () => loadExample('algeria');
+        // Initialisation au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Charger l'exemple Algérie par défaut
+            loadExample('algeria');
+            
+            // Ajouter les écouteurs d'événements pour la mise à jour automatique
+            document.getElementById('html-editor').addEventListener('input', updatePreview);
+            document.getElementById('css-editor').addEventListener('input', updatePreview);
+            
+            console.log('RAYANE Editor initialisé avec succès !');
+            console.log('Créé par Ouared Seraidi - Ksar El Boukhari');
+            console.log('WhatsApp: +213675137284');
+        });
+
+        // Sauvegarde automatique (optionnelle)
+        let autoSaveTimer;
+        function autoSave() {
+            clearTimeout(autoSaveTimer);
+            autoSaveTimer = setTimeout(() => {
+                localStorage.setItem('rayane-html', document.getElementById('html-editor').value);
+                localStorage.setItem('rayane-css', document.getElementById('css-editor').value);
+            }, 5000);
+        }
+
+        document.getElementById('html-editor').addEventListener('input', autoSave);
+        document.getElementById('css-editor').addEventListener('input', autoSave);
+
+        // Charger la sauvegarde automatique au démarrage
+        const savedHTML = localStorage.getItem('rayane-html');
+        const savedCSS = localStorage.getItem('rayane-css');
+        if (savedHTML && savedCSS) {
+            if (confirm('Voulez-vous restaurer votre dernière session ?')) {
+                document.getElementById('html-editor').value = savedHTML;
+                document.getElementById('css-editor').value = savedCSS;
+                updatePreview();
+            }
+        }
     </script>
 </body>
 </html>
